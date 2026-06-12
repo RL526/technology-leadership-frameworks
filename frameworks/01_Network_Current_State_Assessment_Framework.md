@@ -1,7 +1,5 @@
----
-
 # Network Current State Assessment Framework
-**City of Philadelphia — Office of Innovation and Technology**
+**City of Philadelphia – Office of Innovation and Technology**
 *Technology Leadership Frameworks | [Candidate Name]*
 
 ---
@@ -22,130 +20,80 @@ A current state assessment is the foundational input to all resiliency, availabi
 | Logical architecture | VLANs, routing, switching, DNS, DHCP, firewall zones |
 | Cloud and hybrid connectivity | Cloud gateways, SD-WAN, VPN tunnels |
 | Network security posture | Firewall rules, IDS/IPS, access controls, segmentation |
-| Operations and documentation | Runbooks, diagrams, escalation matrices, shift procedures |
-| Vendor and contract landscape | Active contracts, SLAs, support agreements |
-| Performance baseline | Bandwidth utilization, latency, uptime history |
+| Performance and capacity | Bandwidth utilization, latency, packet loss, throughput |
+| Vendor and contract landscape | ISPs, hardware vendors, support contracts, EOL dates |
 
 ---
 
-## Assessment Methodology
+## Assessment Phases
 
-### Phase 1 — Discovery (Days 1–15)
+### Phase 1 — Discovery and Inventory
+- Collect all network diagrams (current and historical)
+- Inventory all active hardware: routers, switches, firewalls, load balancers, wireless controllers
+- Document all circuits: provider, bandwidth, contract expiration, SLA terms
+- Identify all data center and closet locations with physical access controls
+- Capture all IP address schemes, VLAN assignments, and subnet documentation
 
-**Objective:** Collect existing documentation, inventory, and operational data.
+### Phase 2 — Architecture Review
+- Map logical topology end-to-end
+- Identify single points of failure
+- Assess redundancy: core, distribution, and access layers
+- Review WAN architecture: MPLS, SD-WAN, direct internet, hybrid
+- Document DNS and DHCP infrastructure and management model
+- Assess cloud connectivity: direct connect, VPN, peering
 
-**Activities:**
-- Request and review all existing network diagrams and topology documentation
-- Inventory all network hardware: routers, switches, firewalls, load balancers, wireless controllers
-- Catalog all WAN circuits, carrier contracts, and bandwidth allocations
-- Identify all data center locations and colocation facilities
-- Document all cloud connectivity and hybrid network integrations
-- Review existing monitoring tools, dashboards, and alerting configurations
-- Collect historical uptime and incident data for the prior 12 months
+### Phase 3 — Security Posture Review
+- Review firewall rule sets for bloat, conflicts, and shadow rules
+- Assess network segmentation: flat network vs. tiered zones
+- Identify unmanaged or rogue devices
+- Review IDS/IPS coverage and alert tuning status
+- Assess wireless security: encryption standards, guest isolation, rogue AP detection
+- Document privileged access to network infrastructure
 
-**Deliverables:**
-- Hardware and software inventory register
-- Network topology map (current state)
-- Carrier and vendor contract summary
-- Historical availability report
+### Phase 4 — Performance and Capacity Baseline
+- Pull 90-day utilization reports for all WAN circuits
+- Identify top bandwidth consumers by application and user segment
+- Document recurring outage or degradation incidents (prior 12 months)
+- Review QoS policies and traffic prioritization
+- Assess capacity headroom against projected growth
 
----
-
-### Phase 2 — Stakeholder Interviews (Days 10–25)
-
-**Objective:** Capture operational knowledge held by senior network engineers and key stakeholders.
-
-**Activities:**
-- Conduct structured interviews with all senior network engineers
-- Engage 75 City technology stakeholders to document departmental network dependencies
-- Interview Public Safety and Philadelphia International Airport technology teams
-- Document known pain points, recurring incidents, and workarounds currently in use
-- Capture undocumented tribal knowledge and informal escalation paths
-
-**Interview Guide — Key Questions:**
-1. What are the top three recurring network issues you manage today?
-2. What documentation gaps make your work harder?
-3. Where are the highest-risk single points of failure you are aware of?
-4. What would you change first if you had full authority to act?
-5. What does success look like for this network environment in 12 months?
-
-**Deliverables:**
-- Stakeholder interview summary report
-- Known issues and pain point register
-- Undocumented dependency map
+### Phase 5 — Vendor and Contract Landscape
+- Compile all active network vendor relationships
+- Document contract terms, renewal dates, and escalation paths
+- Identify hardware at or near end-of-life (EOL) or end-of-support (EOS)
+- Assess vendor concentration risk
+- Review SLA compliance history
 
 ---
 
-### Phase 3 — Technical Assessment (Days 15–30)
+## Key Deliverables
 
-**Objective:** Validate discovery findings through direct technical review.
-
-**Activities:**
-- Review firewall rule sets for redundancy, conflicts, and security gaps
-- Analyze routing tables and identify suboptimal paths
-- Assess wireless infrastructure coverage, density, and controller configurations
-- Evaluate network segmentation and microsegmentation posture
-- Review DNS and DHCP configurations for accuracy and redundancy
-- Assess monitoring tool coverage — identify blind spots
-- Benchmark current network performance against industry standards
-
-**Deliverables:**
-- Technical findings report
-- Gap analysis matrix (current state vs. target state)
-- Risk-ranked issue register
-
----
-
-### Phase 4 — Assessment Synthesis and Reporting (Days 25–35)
-
-**Objective:** Compile findings into a prioritized current state report with executive summary.
-
-**Activities:**
-- Consolidate all discovery, interview, and technical findings
-- Score all identified issues by risk severity, operational impact, and remediation complexity
-- Map findings to short-term priorities (resiliency, availability, process improvement) and long-term priorities (recovery, capability buildout)
-- Develop prioritized remediation roadmap
-- Present findings to CIO, Deputy CIO — Public Safety/CTO, and CISO
-
-**Deliverables:**
-- Current State Assessment Report (Executive Summary + Technical Detail)
-- Prioritized issue register with remediation roadmap
-- Presentation deck for senior leadership
-
----
-
-## Stakeholder Roles
-
-| Role | Responsibility |
+| Deliverable | Description |
 |---|---|
-| Deputy Chief Networking Officer | Assessment lead — owns methodology, timeline, and deliverables |
-| Senior Network Engineers | Subject matter experts — primary technical contributors |
-| CIO | Sponsor — receives executive summary briefing |
-| Deputy CIO — Public Safety / CTO | Stakeholder — Public Safety network scope |
-| CISO | Stakeholder — security posture findings |
-| Department Technology Leads (75 City stakeholders) | Input providers — departmental dependencies |
+| Network Inventory Register | All hardware, circuits, and logical assets documented |
+| Current State Architecture Diagram | Validated logical and physical topology |
+| Risk and Gap Summary | Identified vulnerabilities, gaps, and single points of failure |
+| Capacity Baseline Report | Utilization, headroom, and growth projections |
+| Vendor Landscape Summary | Contracts, EOL exposure, and concentration risk |
+| Executive Summary | 1–2 page leadership-facing summary of findings |
 
 ---
 
-## Risk Assessment
+## Decision Criteria — When to Escalate
 
-| Risk | Likelihood | Impact | Mitigation |
-|---|---|---|---|
-| Incomplete documentation discovered | High | High | Use interviews and direct technical review to fill gaps |
-| Stakeholder availability constraints | Medium | Medium | Schedule interviews 2 weeks in advance — executive sponsor support |
-| Assessment disrupts operations | Low | High | All reviews conducted passively — no changes during assessment phase |
-| Scope creep beyond networking | Medium | Medium | Maintain strict scope boundary — escalate out-of-scope items |
+Escalate findings immediately when any of the following are identified:
 
----
-
-## Success Criteria
-
-- Complete hardware and software inventory documented
-- Network topology map validated and updated
-- All known issues and risks captured and risk-ranked
-- Stakeholder interviews completed for all 20+ senior engineers and key City stakeholders
-- Executive summary delivered to CIO and Deputy CIO within 35 days of engagement
+- Active hardware with no vendor support path
+- Flat network architecture with no segmentation between critical systems
+- No redundancy on core or WAN connectivity
+- Firewall rule sets not reviewed in more than 12 months
+- Missing or outdated network diagrams for production environments
+- Unmanaged devices on production segments
 
 ---
 
-*Framework version 1.0 | City of Philadelphia OIT alignment | [Candidate Name]*
+## Framework Owner
+
+**[Candidate Name]**
+Deputy Chief Networking Officer (Candidate)
+City of Philadelphia – Office of Innovation and Technology

@@ -1,5 +1,3 @@
-Editor is open and empty. Click inside the editor and paste this complete content now:Click inside the editor and paste everything below this line:
-
 ---
 
 # Network Current State Assessment Framework
